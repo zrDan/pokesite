@@ -4,3 +4,24 @@
   flex-wrap: wrap;
   margin: 1rem 1.5rem;
 }
+
+.pag-container {
+  display: flex;
+  justify-content: space-between;
+  margin: 1rem 0;
+  width: 18rem;
+}
+
+.pag-option > button {
+  border: none;
+  background-color: #f13030;
+  color: white;
+  border-radius: 5px;
+  height: 2rem;
+  width: 5rem;
+  font-weight: 500;
+}
+
+.pag-option > button:disabled {
+  background-color: gray;
+}

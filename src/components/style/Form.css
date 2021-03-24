@@ -1,0 +1,45 @@
+.form-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 20rem;
+  width: 18rem;
+}
+
+.form-title {
+  margin: 1rem 0;
+}
+
+.form-content {
+  height: 100%;
+  width: 90%;
+}
+
+.form-input {
+  margin: 2rem 0;
+  height: 2rem;
+}
+
+.form-input > input {
+  height: 100%;
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid black;
+  text-align: center;
+}
+
+.button-container {
+  height: 2rem;
+  margin: 3rem 3rem 0 3rem;
+}
+
+.button-container > button {
+  height: 100%;
+  width: 100%;
+  border: none;
+  background-color: #f13030;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  color: #f3f3f3;
+}

@@ -1,9 +1,10 @@
 import React from "react";
+import LogIn from "./LogIn";
 
 export default function SessionAuth() {
   return (
-    <div>
-      <p>Cuenta</p>
-    </div>
+    <>
+      <LogIn />
+    </>
   );
 }

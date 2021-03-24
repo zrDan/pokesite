@@ -6,6 +6,9 @@ import Layout from "./Layout";
 import HomePage from "../pages/HomePage";
 import NewPokemon from "../pages/NewPokemon";
 import PokemonView from "../pages/PokemonView";
+import PokemonFind from "../pages/PokemonFind";
+import SessionAuth from "./SessionAuth";
+import SigIn from "./SigIn";
 
 export default function App() {
   return (
@@ -16,6 +19,9 @@ export default function App() {
             <Route exact path="/" component={HomePage} />
             <Route exact path="/newPokemon" component={NewPokemon} />
             <Route exact path="/pokemon/:pokemonName" component={PokemonView} />
+            <Route exact path="/find/:pokemonName" component={PokemonFind} />
+            <Route exact path="/user/aouth" component={SessionAuth} />
+            <Route exact path="/user/new" component={SigIn} />
           </Switch>
         </Layout>
       </Router>

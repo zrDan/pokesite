@@ -6,34 +6,38 @@ import "./style/PokeList.css";
 export default function PokeList() {
   const dispatch = useDispatch();
   const pokemonStateList = useSelector((state) => state.pokemonList);
+  const pokemonStateUrl = useSelector((state) => state.pokemonUrl);
 
   const [status, setStatus] = useState({
     error: "",
     loading: true,
   });
+
   const { error, loading } = status;
 
-  const showError = () => <h4>{error}</h4>;
+  const showError = () => error && <h4>{error}</h4>;
 
   const showLoading = () => loading && <h4>Loading...</h4>;
 
   useEffect(() => {
-    fetch(`https://pokeapi.co/api/v2/pokemon`)
-      .then((response) => {
-        return response.json();
-      })
-      .then((list) => {
-        dispatch({
-          type: "SET_POKEMON_LIST",
-          payload: list.results,
+    if (pokemonStateList.length < 1) {
+      fetch(pokemonStateUrl)
+        .then((response) => {
+          return response.json();
+        })
+        .then((data) => {
+          dispatch({
+            type: "SET_POKEMON_LIST",
+            payload: {
+              list: data.results,
+            },
+          });
+          setStatus({ ...status, loading: false });
         });
-        setStatus({ ...status, loading: false });
-      })
-      .catch((err) => {
-        console.log("Error: ", err);
-        setStatus({ error: err, loading: false });
-      });
-  }, [dispatch]);
+    } else {
+      setStatus({ ...status, loading: false });
+    }
+  }, []);
 
   return (
     <div className="wrapper">

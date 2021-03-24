@@ -4,11 +4,13 @@
   align-items: center;
   margin-top: 2rem;
 }
+
 .pokemon-content {
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
   margin: 0 1rem;
   justify-content: center;
+  align-items: center;
 }
 
 .pokemon-image {
@@ -36,4 +38,32 @@
 .pokemon-specs > table > tbody > tr > td {
   text-align: center;
   padding: 8px;
+  font-weight: 500;
+  text-transform: capitalize;
+}
+
+@media screen and (min-width: 768px) {
+  .pokemon-container {
+    margin: 0rem;
+    height: calc(100vh - 3.5rem);
+  }
+
+  .pokemon-content {
+    margin: 0;
+  }
+
+  .pokemon-specs {
+    width: 20rem;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .pokemon-content {
+    flex-direction: row;
+    gap: 8rem;
+  }
+
+  .pokemon-image > img {
+    height: 300px;
+  }
 }
