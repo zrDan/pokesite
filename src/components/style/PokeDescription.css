@@ -1,0 +1,39 @@
+.pokemon-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2rem;
+}
+.pokemon-content {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 1rem;
+  justify-content: center;
+}
+
+.pokemon-image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 20rem;
+}
+
+.pokemon-image > img {
+  height: 230px;
+}
+
+.pokemon-specs {
+  margin-top: 2rem;
+}
+
+.pokemon-specs > table > tbody > tr > th {
+  background-color: #f13030;
+  height: 1.5rem;
+  letter-spacing: 1px;
+  color: #f3f3f3;
+}
+
+.pokemon-specs > table > tbody > tr > td {
+  text-align: center;
+  padding: 8px;
+}

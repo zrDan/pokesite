@@ -1,0 +1,35 @@
+a {
+  text-decoration: none;
+}
+
+.card {
+  display: grid;
+  grid-template-rows: 70% 30%;
+  height: 22rem;
+  width: 20rem;
+  margin: 1.5rem 1rem;
+}
+
+.card-image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-top: 4px solid #f13030;
+  border-left: 4px solid #f13030;
+  border-right: 4px solid #f13030;
+}
+
+.card-image > img {
+  height: 150px;
+}
+
+.card-name {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f13030;
+  color: white;
+  text-transform: capitalize;
+  letter-spacing: 1px;
+  font-size: 1.25rem;
+}
