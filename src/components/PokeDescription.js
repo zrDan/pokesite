@@ -7,7 +7,7 @@ export default function PokeDescription() {
 
   const [pokemonDesc, setPokemon] = useState({
     _id: "",
-    abilities: [],
+    name: "",
     types: [],
     sprites: [],
     weight: 0,
@@ -44,7 +44,7 @@ export default function PokeDescription() {
                 </tr>
                 <tr>
                   <td>{pokemonDesc._id}</td>
-                  <td>{pokemonName}</td>
+                  <td>{pokemonDesc.name}</td>
                 </tr>
                 <tr>
                   <th>Peso</th>
@@ -92,9 +92,10 @@ export default function PokeDescription() {
         return response.json();
       })
       .then((data) => {
+        console.log(data);
         setPokemon({
           _id: data.id,
-          abilities: data.abilities,
+          name: pokemonName,
           types: data.types,
           sprites: Object.values(data.sprites),
           weight: data.weight,
@@ -102,9 +103,29 @@ export default function PokeDescription() {
         });
         setStatus({ ...status, loading: false });
       })
-      .catch((err) => {
-        console.log("Error: ", err);
-        setStatus({ error: "No se Encontro el pokemon", loading: false });
+      .catch(() => {
+        fetch(
+          `https://pokeapitec.herokuapp.com/api/newpokemon/pokemonDetails/${pokemonName}`
+        )
+          .then((response) => {
+            return response.json();
+          })
+          .then((data) => {
+            console.log(data);
+            setPokemon({
+              _id: data._id,
+              name: data.name,
+              types: [{ type: { name: data.elemental } }],
+              sprites: data.sprites,
+              weight: data.weight,
+              height: data.height,
+            });
+            setStatus({ ...status, loading: false });
+          })
+          .catch((err) => {
+            console.log("Error: ", err);
+            setStatus({ error: "No se Encontro el pokemon", loading: false });
+          });
       });
   }, []);
 

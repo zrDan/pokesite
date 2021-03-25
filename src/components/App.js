@@ -9,6 +9,7 @@ import PokemonView from "../pages/PokemonView";
 import PokemonFind from "../pages/PokemonFind";
 import SessionAuth from "./SessionAuth";
 import SigIn from "./SigIn";
+import UserPage from "../pages/UserPage";
 
 export default function App() {
   return (
@@ -22,6 +23,7 @@ export default function App() {
             <Route exact path="/find/:pokemonName" component={PokemonFind} />
             <Route exact path="/user/aouth" component={SessionAuth} />
             <Route exact path="/user/new" component={SigIn} />
+            <Route exact path="/user/profile" component={UserPage} />
           </Switch>
         </Layout>
       </Router>
